@@ -1,0 +1,40 @@
+version: "3"
+networks:
+  flyserver:
+    driver: bridge
+services:
+  container_hyperf1:
+    image: hyperf/hyperf:8.1-alpine-v3.15-swoole-v5
+    container_name: container_hyperf1
+    ports:
+      - 62031:9501
+    volumes:
+      - ./:/data/projects
+    working_dir: /data/projects
+    networks:
+      - flyserver
+    entrypoint:
+        - /bin/sh
+    privileged: true
+    user: root
+    tty: true # 终端交互
+
+
+
+  container_nacos1:
+    image: nacos/nacos-server:latest
+    container_name: container_nacos1
+    ports:
+      - 8850:8848
+    environment:
+        - MODE=standalone
+        - PREFER_HOST_MODE=hostname
+        - JVM_XMS=256m
+        - JVM_XMX=256m
+        - JVM_XMN=128m
+        - JVM_MS=128m
+        - JVM_MMS=320m
+    restart: always
+    privileged: true
+    networks:
+        - flyserver
