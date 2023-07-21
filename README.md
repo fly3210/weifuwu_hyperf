@@ -1,0 +1,25 @@
+# .env
+```dotenv
+APP_NAME=skeleton
+APP_ENV=dev
+
+DB_DRIVER=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=hyperf
+DB_USERNAME=root
+DB_PASSWORD=
+DB_CHARSET=utf8mb4
+DB_COLLATION=utf8mb4_unicode_ci
+DB_PREFIX=
+
+REDIS_HOST=localhost
+REDIS_AUTH=(null)
+REDIS_PORT=6379
+REDIS_DB=0
+
+NACOS_HOST=4109e2f35255
+NACOS_PORT=8848
+NACOS_USERNAME=nacos
+NACOS_PASSWORD=nacos
+```
